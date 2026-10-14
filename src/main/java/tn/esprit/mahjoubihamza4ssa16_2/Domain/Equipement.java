@@ -1,10 +1,9 @@
 package tn.esprit.mahjoubihamza4ssa16_2.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,4 +17,7 @@ public class Equipement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEquipement;
     private String libelle;
+    @ManyToMany(mappedBy = "equipements")
+    Set<Vehicule> vehicules;
+
 }
